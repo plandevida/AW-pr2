@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>AW-login php</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<style>
+		.login {
+			display: block;
+			width: 40em;
+			margin-left: auto;
+			margin-right: auto;
+			border: 2px solid #000;
+		}
+		.login #formulario input {
+			width: 65%;
+		}
+		.login .formerror {
+			display: none;
+			color: #ff0000;
+		}
+	</style>
+	<script>
+		function sendForm() {
+			var form = document.getElementById('formulario');
+
+			if (form) {
+				form.submit();	
+			}
+		}
+
+		function checkPass(prop) {
+			var pass = document.getElementById('password');
+			var repass = document.getElementById('passwordrep');
+
+			if (pass && passwordrep) {
+				if (pass.value != '' && passwordrep.value != '' && pass.value == passwordrep.value) {
+					var errors = document.getElementsByClassName("formerror");
+
+					for (var i in errors) {
+						errors[i].style.display = "none";
+					}
+
+					if (prop == 'sendform')
+						sendForm();
+				}
+				else {
+					var errors = document.getElementsByClassName("formerror");
+
+					for (var i in errors) {
+						errors[i].style.display = "block";
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="login">
+		<form  id="formulario" action="registro.php" method="post">
+			Nombre de usuario: <input id="username" name="username" type="text" autocomplete="on" autofocus placeholder="Inserta tu nombre de usuario" required>
+			</br>
+			Contraseña: <input id="password" name="password" type="password" onblur="checkPass()" required>
+			</br>
+			<p class="formerror">Las contraseñas no coinciden</p>
+			</br>
+			Repetir contraseña: <input id="passwordrep" name="password" type="password" onblur="checkPass()" required>
+			</br>
+			<p class="formerror">Las contraseñas no coinciden</p>
+			<input type="submit" value="Registrarse" onClick="checkPass('sendform')">
+		</form>
+		<a href="index.html">Volver</a>
+	</div>
+</body>
+</html>
