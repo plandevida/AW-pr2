@@ -39,7 +39,7 @@
 					echo "Ese usuario ya existe";
 				}
 				else {
-					$insert = "INSERT INTO usuarios (nombre, psswrd) VALUES (nombre='" . $nombreusuario . "', psswrd='" . $pass . "')";
+					$insert = "INSERT INTO usuarios (nombre, psswrd) VALUES ('" . $nombreusuario . "', '" . $pass . "')";
 					echo "</br> insert: " . $insert . "</br>";
 
 					if ($inserted = @mysqli_query($connection, $insert)) {

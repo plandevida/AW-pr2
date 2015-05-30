@@ -50,6 +50,9 @@
 					echo "Error al iniciar sesión";
 				}
 			}
+			else {
+				echo "Error al iniciar sesión";
+			}
 		}
 		else {
 			echo "Error al iniciar sesion";
